@@ -1,0 +1,95 @@
+================================================================================
+PROJECT INTRODUCTION
+================================================================================
+
+1. ENVIRONMENT SETUP
+--------------------------------------------------------------------------------
+Execute the following commands to set up the mamba environment and dependencies:
+
+# Create and activate the environment
+micromamba create --name mphy0043-pt python=3.11 -y
+micromamba activate mphy0043-pt 
+
+# Install MONAI and PyTorch core
+pip install "monai[nibabel, gdown, ignite]"
+
+# Install development tools and video processing
+pip install notebook matplotlib av pillow
+
+# Install scientific computing and computer vision libraries
+pip install numpy scipy scikit-learn opencv-python tqdm torchvision
+
+
+2. PROJECT FILE STRUCTURE
+--------------------------------------------------------------------------------
+project_root/
+│── run.py                          			# Main orchestrator script
+│── dataset.py                      			# Data loading and sequence processing
+│── model.py                        			# Architecture definitions (Task A, B, Multi)
+│── config.py                     			# Hyperparameters and global settings
+│── utils.py                        			# Logging, metrics, and plotting tools
+│── test.py                         			# Unified evaluation script
+│── visualization.py                		# Comparative visualization generator
+│── train/                          			# Directory containing training variants
+│   │── train_A.py                  			# Phase recognition training
+│   │── Timed_Label_Guided.py      		# Single-task B (GT priors)
+│   │── Timed_Multi_Task_Label-Guided.py  	# Multi-task (GT priors)
+│   │── Timed_Multi_Task_Pred-Guided.py   	# Multi-task (Task A prediction priors)
+│   │── train_baseline.py           		# Pure visual baseline (No priors)
+│── tf_cholec80/                    
+│   │── __init__.py
+│   │── dataset.py
+│   └── configs/
+│       └── config.json            			# <--- [PATH CONFIGURATION HERE]
+
+
+3. DATA CONFIGURATION
+--------------------------------------------------------------------------------
+Before running the pipeline, you must link your local Cholec80 dataset:
+
+1. Navigate to: tf_cholec80/configs/config.json
+2. Update the "cholec80_dir" field to point to your local dataset directory.
+3. Ensure your dataset directory contains the following subfolders:
+   - /frames/
+   - /phase_annotations/
+   - /tool_annotations/
+
+
+4. REPRODUCING RESULTS
+--------------------------------------------------------------------------------
+The entire pipeline is automated. Run the following command in the project root:
+
+    python run.py
+
+Execution Flow:
+The script executes the following steps sequentially:
+
+I.   Task A Training: Trains CholecAutoModel for phase and temporal estimation.
+II.  Baselines: Trains the ToolBaselineModel (visual-only).
+III. Task B Variants: Trains guided models, concluding with the 
+     Prediction-Guided Multi-Task model (using Task A outputs).
+IV.  Global Testing: Evaluates all saved .pth checkpoints against the test set.
+V.   Visualization: Generates frame-by-frame comparison plots for test videos.
+
+
+5. MONITORING RESULTS
+--------------------------------------------------------------------------------
+After the pipeline completes, verify performance via these outputs:
+
+A. Training Logs and Checkpoints
+   - Logs: Located in checkpoints_A/, checkpoints_B/, checkpoints_B_Multi/, 
+     and checkpoints_baseline/. Documents Loss and F1/mAP per epoch.
+   - Plots: .png files in checkpoint folders (e.g., task_b_pure_metrics.png) 
+     display Loss and Accuracy curves.
+   - Models: Best weights are saved as .pth files (e.g., best_task_a.pth).
+
+B. Evaluation Metrics
+   - Check the project root for test_results_[TIMESTAMP].log.
+   - Contains side-by-side comparisons of all models (Macro mAP, mF1, etc.).
+
+C. Qualitative Visualization
+   - Located in the visualization/ directory.
+   - Timeline plots (e.g., comparison_video_49_Part_1.png) show Ground Truth 
+     vs. predictions for all five model variants across the surgical duration.
+
+================================================================================

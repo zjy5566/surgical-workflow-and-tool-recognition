@@ -1,0 +1,14 @@
+# Main PyTorch pipeline
+torch
+torchvision
+numpy
+Pillow
+tqdm
+matplotlib
+scikit-learn
+scipy
+
+# Retained TF-Cholec80 loader only
+tensorflow
+setuptools
+
