@@ -290,7 +290,7 @@ assets/                           README figures derived from the experiment
 
 No Cholec80 videos, extracted frames, annotations, model weights, logs, or
 course report are included. The documentation figures are experiment-derived
-and are not covered by any future license for the student-authored source code;
+and are not covered by the MIT License for the student-authored source code;
 their reuse remains subject to the Cholec80 terms and applicable coursework
 conditions.
 
@@ -298,9 +298,12 @@ conditions.
 [CAMMA's TF-Cholec80 project](https://github.com/CAMMA-public/TF-Cholec80) and
 remains under CC BY-NC-SA 4.0. It is not used by the main PyTorch pipeline.
 
-No open-source license is currently granted for the sole student-authored code.
-See [NOTICE.md](NOTICE.md) and [LICENSE_PENDING.md](LICENSE_PENDING.md) before
-reuse.
+The independently authored project code is available under the
+[MIT License](LICENSE). MIT does **not** cover `tf_cholec80/dataset.py`,
+Cholec80 data, medical-image pixels, figures in `assets/`, coursework
+materials, model outputs, or third-party dependencies. See
+[NOTICE.md](NOTICE.md) for the precise file scope, provenance, and third-party
+terms.
 
 ## Source provenance
 

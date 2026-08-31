@@ -35,10 +35,9 @@ figure contains small laparoscopic frame thumbnails, and the other figures
 visualize predictions derived from Cholec80.
 
 These figures are documentation assets, not student-authored source code. They
-are excluded from any current or future software license applied to that code.
-Because they derive from Cholec80 experiments, confirm the Cholec80 data terms,
-attribution requirements, and applicable coursework conditions before reusing
-them.
+are excluded from the MIT License applied to that code. Because they derive
+from Cholec80 experiments, confirm the Cholec80 data terms, attribution
+requirements, and applicable coursework conditions before reusing them.
 
 ## Cholec80 data
 
@@ -67,8 +66,30 @@ PyTorch, torchvision, TensorFlow, NumPy, Pillow, tqdm, Matplotlib,
 scikit-learn, SciPy, and setuptools are external dependencies and are not
 vendored here. Each remains governed by its own license.
 
-## Student-authored code license
+## License scope
 
-No open-source license is currently granted for the sole student-authored
-code. See `LICENSE_PENDING.md`. This pending status does not change the license
-of TF-Cholec80, Cholec80 data, documentation figures, or external dependencies.
+The MIT License in `LICENSE` applies only to the following independently
+authored project source files:
+
+- `config.py`
+- `dataset.py`
+- `model.py`
+- `run.py`
+- `test.py`
+- `utils.py`
+- `visualization.py`
+- `train/Timed_Label_Guided.py`
+- `train/Timed_Multi_Task_Label-Guided.py`
+- `train/Timed_Multi_Task_Pred-Guided.py`
+- `train/train_A.py`
+- `train/train_baseline.py`
+
+The MIT License does not apply to `tf_cholec80/dataset.py`, any other
+third-party material, Cholec80 videos or annotations, extracted medical-image
+pixels, documentation figures in `assets/`, coursework or assessment
+materials, checkpoints or model outputs, or external dependencies.
+
+`tf_cholec80/dataset.py` remains governed solely by the CC BY-NC-SA 4.0 terms
+described above. The documentation figures remain subject to the Cholec80 data
+terms and applicable coursework conditions. Nothing in the MIT License grants
+rights to those excluded materials.
