@@ -34,18 +34,36 @@ path was identified in the selected figures during review. The architecture
 figure contains small laparoscopic frame thumbnails, and the other figures
 visualize predictions derived from Cholec80.
 
-These figures are documentation assets, not student-authored source code. They
-are excluded from the MIT License applied to that code. Because they derive
-from Cholec80 experiments, confirm the Cholec80 data terms, attribution
-requirements, and applicable coursework conditions before reusing them.
+These figures are documentation assets, not MIT-licensed project source code.
+They are based on the Cholec80 dataset released by the CAMMA Research Group,
+University of Strasbourg, under Creative Commons
+Attribution-NonCommercial-ShareAlike 4.0:
+
+- https://camma.unistra.fr/datasets/
+- https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+Modifications include frame sampling, resizing, prediction and annotation
+visualization, figure composition, background flattening, and JPEG conversion.
+The resulting Cholec80-derived figures are shared under CC BY-NC-SA 4.0. No
+endorsement by CAMMA is implied. Users must preserve attribution, link the
+license, identify modifications, comply with the non-commercial restriction,
+and share adaptations under the same or a compatible license.
 
 ## Cholec80 data
 
-No Cholec80 video, extracted frame, annotation file, or model checkpoint is
-distributed in this repository. Cholec80 access and use remain governed by
-CAMMA's process and terms:
+No standalone Cholec80 video, extracted-frame file, annotation file, or model
+checkpoint is distributed in this repository. A small number of resized frame
+thumbnails are embedded in the architecture figure described above. Cholec80
+access and use remain governed by CAMMA's process and CC BY-NC-SA 4.0 terms:
 
 - https://camma.unistra.fr/datasets/
+
+The dataset is associated with the following work, which users should cite:
+
+A. P. Twinanda, S. Shehata, D. Mutter, J. Marescaux, M. de Mathelin, and
+N. Padoy, “EndoNet: A Deep Architecture for Recognition Tasks on Laparoscopic
+Videos,” *IEEE Transactions on Medical Imaging*, 2017.
+https://doi.org/10.1109/TMI.2016.2593957
 
 ## TF-Cholec80
 
@@ -86,10 +104,12 @@ authored project source files:
 
 The MIT License does not apply to `tf_cholec80/dataset.py`, any other
 third-party material, Cholec80 videos or annotations, extracted medical-image
-pixels, documentation figures in `assets/`, coursework or assessment
-materials, checkpoints or model outputs, or external dependencies.
+pixels, Cholec80-derived documentation figures in `assets/`, coursework or
+assessment materials, checkpoints or model outputs, or external dependencies.
 
-`tf_cholec80/dataset.py` remains governed solely by the CC BY-NC-SA 4.0 terms
-described above. The documentation figures remain subject to the Cholec80 data
-terms and applicable coursework conditions. Nothing in the MIT License grants
-rights to those excluded materials.
+`tf_cholec80/dataset.py` and the Cholec80-derived documentation figures remain
+governed by CC BY-NC-SA 4.0 as described above. The repository is therefore a
+mixed-license research repository: independently authored project code is MIT,
+while the identified Cholec80-derived and TF-Cholec80 materials are
+CC BY-NC-SA 4.0. Nothing in the MIT License replaces or extends to the
+CC-licensed components.

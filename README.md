@@ -5,6 +5,12 @@ A two-stage PyTorch research pipeline for **surgical workflow estimation** and
 tests whether phase and progress context can complement the visual appearance
 of the current frame when identifying seven surgical tools.
 
+> **Mixed-license repository.** The independently authored project code is
+> available under the [MIT License](LICENSE). The retained TF-Cholec80 loader
+> and Cholec80-derived documentation figures are available under
+> [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+> The MIT License does not replace or extend to those CC-licensed components.
+
 ![Selected tool-presence intervals](assets/selected-tool-timeline-intervals.jpg)
 
 *Selected intervals from test video 49. The traces compare ground truth, a
@@ -286,24 +292,42 @@ assets/                           README figures derived from the experiment
 - This is educational/research software and has not been validated for
   real-time or clinical use.
 
-## Data, figures, and licensing
+## Data, figures, and mixed licensing
 
-No Cholec80 videos, extracted frames, annotations, model weights, logs, or
-course report are included. The documentation figures are experiment-derived
-and are not covered by the MIT License for the student-authored source code;
-their reuse remains subject to the Cholec80 terms and applicable coursework
-conditions.
+No standalone Cholec80 videos, extracted-frame files, annotations, model
+weights, logs, or course report are included. A small number of resized
+Cholec80 frame thumbnails are embedded in the architecture figure, and the
+other documentation figures visualize predictions derived from Cholec80.
+
+This repository contains independently licensed components:
+
+| Material | License |
+|---|---|
+| Independently authored Python code listed in `NOTICE.md` | [MIT](LICENSE) |
+| `tf_cholec80/dataset.py` | [CC BY-NC-SA 4.0](THIRD_PARTY_LICENSES/TF-Cholec80-LICENSE.txt) |
+| Cholec80-derived figures in `assets/` | [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) |
+| Cholec80 data, not redistributed as standalone files here | [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) |
+
+The Cholec80-derived figures are based on the dataset released by the
+[CAMMA Research Group, University of Strasbourg](https://camma.unistra.fr/datasets/).
+Modifications include frame sampling, resizing, prediction and annotation
+visualization, figure composition, background flattening, and JPEG conversion.
+The resulting figures are shared under CC BY-NC-SA 4.0; no endorsement by
+CAMMA is implied. Please cite:
+
+> A. P. Twinanda, S. Shehata, D. Mutter, J. Marescaux, M. de Mathelin, and
+> N. Padoy. “EndoNet: A Deep Architecture for Recognition Tasks on
+> Laparoscopic Videos.” *IEEE Transactions on Medical Imaging*, 2017.
+> https://doi.org/10.1109/TMI.2016.2593957
 
 `tf_cholec80/dataset.py` is a retained third-party file from
 [CAMMA's TF-Cholec80 project](https://github.com/CAMMA-public/TF-Cholec80) and
 remains under CC BY-NC-SA 4.0. It is not used by the main PyTorch pipeline.
 
-The independently authored project code is available under the
-[MIT License](LICENSE). MIT does **not** cover `tf_cholec80/dataset.py`,
-Cholec80 data, medical-image pixels, figures in `assets/`, coursework
-materials, model outputs, or third-party dependencies. See
-[NOTICE.md](NOTICE.md) for the precise file scope, provenance, and third-party
-terms.
+The MIT-licensed code may be used commercially, but the Cholec80-derived
+material and retained TF-Cholec80 file may only be used for non-commercial
+purposes under their CC BY-NC-SA 4.0 terms. See [NOTICE.md](NOTICE.md) for the
+precise file scope, provenance, attribution, and modification notice.
 
 ## Source provenance
 
