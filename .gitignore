@@ -56,3 +56,6 @@ visualization/
 *grade*
 *report*
 
+# Curated documentation figures
+!assets/
+!assets/*.jpg
